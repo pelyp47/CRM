@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
+import App from "./App.jsx"
 
 const container = ReactDOM.createRoot(document.querySelector(".container"))
 
-container.render(<><div>lll</div></>)
+container.render(<App/>)

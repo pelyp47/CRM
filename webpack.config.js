@@ -15,7 +15,15 @@ module.exports = {
             use: {
               loader: 'babel-loader'
             }
-          }
+          },
+          {
+            test: /\.scss$/,
+            use: [
+              'style-loader', // creates style nodes from JS strings
+              'css-loader', // translates CSS into CommonJS
+              'sass-loader' // compiles Sass to CSS
+            ]
+          },
         ]
     },
     plugins: [
@@ -23,4 +31,9 @@ module.exports = {
           template: './src/assets/index.html'
         })
     ],
+    devServer: {
+        static: './dist',
+        port: 3000,
+        hot: true
+    }
 }

@@ -10,6 +10,7 @@ module.exports = {
     module: {
         rules: [
           {
+            //jsx handle
             test: /\.jsx?$/,
             exclude: /node_modules/,
             use: {
@@ -17,20 +18,36 @@ module.exports = {
             }
           },
           {
+            //scss handle
             test: /\.scss$/,
             use: [
-              'style-loader', // creates style nodes from JS strings
-              'css-loader', // translates CSS into CommonJS
-              'sass-loader' // compiles Sass to CSS
+              'style-loader',
+              'css-loader',
+              'sass-loader'
             ]
           },
+          {
+            //images handle
+            test: /\.(png|jpe?g|gif|svg)$/i,
+            use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  name: '[name].[ext]',
+                  outputPath: 'images/'
+                }
+              }
+            ]
+          }
         ]
     },
     plugins: [
+        //html extraction
         new HtmlWebpackPlugin({
           template: './src/assets/index.html'
         })
     ],
+    //server which starts on "npm run start"
     devServer: {
         static: './dist',
         port: 3000,

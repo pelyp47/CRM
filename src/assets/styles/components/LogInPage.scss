@@ -1,3 +1,88 @@
-div {
-    color: red;
-} 
+$bg-color: #04071F;
+$form-color: #D9D9D9;
+$login-font: "Montserrat", sans;
+
+.log-in{
+    height: 100vh;
+    font-family: $login-font;
+    width: 100%;
+    background-color: $bg-color;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    .logo {
+        font-size: 64px;
+        margin-left: 20px;
+    }
+}
+
+.log-in__wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 50%;
+    &_left {
+        padding: 0 calc(50%/4);
+    }
+}
+
+.log-in__form {
+    margin-top: 50px;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.log-in__input {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    & input {
+        background-color: rgba(0,0,0,.0);
+        border-radius: 30px;
+        border: 1px solid $form-color;
+        color: $form-color;
+        font-weight: 100;
+        font-size: 20px;
+        padding: 15px 25px;
+        box-shadow: 0 0 5px #fff;
+    }
+    & img {
+        position: absolute;
+        width: 25px;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.log-in__submit-btn {
+    background-color: #2A2C69;
+    border: none;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 0 0 4px rgba(0,0,0,.25);
+    color: #868686;
+    font-size: 24px;
+    padding: 13px 0;
+}
+
+.log-in__forgot-password {
+    position: relative;
+    left: 25px;
+    top: 30px;
+    align-self: flex-start;
+    & a {
+        color: #464AAC;
+        text-decoration: none;
+    }
+    & span {
+        background-color: #464AAC;
+        height: 1px;
+        position: absolute;
+        width: 100%;
+        right: 0;
+        bottom: 0;
+    }
+}

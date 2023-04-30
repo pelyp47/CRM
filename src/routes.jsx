@@ -3,7 +3,7 @@ import { Routes, Route} from "react-router-dom"
 import LogInPage from "./components/pages/LogInPage.jsx"
 
 const routes = 
-    <Routes  >
+    <Routes>
         <Route exact path="/" Component ={LogInPage}/>
     </Routes>
 

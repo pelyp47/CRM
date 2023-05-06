@@ -7,8 +7,11 @@ import PasswordOff from "../../assets/images/LogInPage/password_off.svg"
 import Bgi from "../../assets/images/LogInPage/bgi_log_in.svg"
 
 const LogInPage = function(props) {
-    let {passwordVisibility, setPasswordVisibility} = useState(true)
-    let {password, setPassword} = useState("")
+    let [passwordVisibility, setPasswordVisibility] = useState(true)
+    let [password, setPassword] = useState("")
+    const passwordVisibilityChange = function(visibility) {
+        setPasswordVisibility(visibility)
+    }
     return (
         <>
         <main className="log-in">
@@ -20,8 +23,10 @@ const LogInPage = function(props) {
                         <img src={EmailSign}/>
                     </label>
                     <label htmlFor="" className="log-in__input log-in__input_password">
-                        <input type="text" name="" id="" placeholder="Password"/>
-                        {passwordVisibility? <img src={PasswordOn} alt=""/> : <img src={PasswordOff} alt=""/> }
+                        <input type={passwordVisibility?"text":"password"}name="" id="" placeholder="Password"/>
+                        {passwordVisibility?
+                        <img src={PasswordOn} alt="" onClick={()=>passwordVisibilityChange(false)}/> : 
+                        <img src={PasswordOff} alt="" onClick={()=>passwordVisibilityChange(true)}/> }
                     </label>
                     <input type="submit" name="" id="" className="log-in__submit-btn"/>
                 </form>

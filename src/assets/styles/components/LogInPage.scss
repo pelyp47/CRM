@@ -4,6 +4,7 @@ $login-font: "Montserrat", sans;
 //margin variable
 .log-in{
     height: 100vh;
+    position: relative;
     font-family: $login-font;
     width: 100%;
     background-color: $bg-color;
@@ -39,7 +40,7 @@ $login-font: "Montserrat", sans;
     flex-direction: column;
     position: relative;
     & input {
-        background-color: rgba(0,0,0,.0);
+        background-color: rgba(4,7,31,1);
         border-radius: 30px;
         border: 1px solid $form-color;
         color: $form-color;
@@ -72,10 +73,11 @@ $login-font: "Montserrat", sans;
     border: none;
     text-align: center;
     border-radius: 30px;
-    box-shadow: 0 0 4px rgba(0,0,0,.25);
+    box-shadow: 0 0 4px rgba(4,7,31,.25);
     color: #868686;
     font-size: 24px;
     padding: 13px 0;
+    will-change: transform;
     transition: color .5s, transform .5s .4s, text-shadow .5s .4s;
     &:hover {
         color: #fff;
@@ -105,6 +107,67 @@ $login-font: "Montserrat", sans;
     &:hover {
         & span {
             width: 0%;
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    .log-in__wrapper {
+        &_left {
+            max-width: 70vw;
+            position: relative;
+            z-index: 1;
+        }
+        &_right {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .log-in__wrapper {
+        &_left {
+            max-width: 85vw;
+        }
+        &_right {
+            display: block;
+            height: 100vh;
+            & * {
+                height: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .log-in__wrapper {
+        &_left {
+            max-width: 100vw;
+        }
+        &_right {
+            height: 100%;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .log-in__input {
+        & input {
+            font-size: 15px;
+        }
+        & img {
+            width: 20px;
+            right: 20px;
+        }
+    }
+    .log-in__submit-btn {
+        font-size: 20px;
+    }
+    .log-in__forgot-password {
+        & a {
+            font-size: 14px;
         }
     }
 }
